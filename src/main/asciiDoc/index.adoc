@@ -1,0 +1,17 @@
+= GuestBookService API
+
+Get All Guest Comments
+
+.request
+include::{snippets}/getAllComments/http-request.adoc[]
+
+.response
+include::{snippets}/getAllComments/http-response.adoc[]
+
+Add Guest Comment
+
+.request
+include::{snippets}/addGuestComment/http-request.adoc[]
+
+.response
+include::{snippets}/addGuestComment/http-response.adoc[]

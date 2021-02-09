@@ -13,6 +13,9 @@ public class GuestComment {
     private String name;
     private String comment;
 
+    public GuestComment(){
+
+    }
     public GuestComment(String name, String comment) {
         this.name = name;
         this.comment = comment;

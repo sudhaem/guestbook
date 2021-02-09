@@ -5,6 +5,8 @@ import com.galvanize.guestbook.repository.GuestBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class GuestBookService {
 
@@ -13,5 +15,9 @@ public class GuestBookService {
 
     public GuestComment addComment(GuestComment guestComment) {
         return guestBookRepository.save(guestComment);
+    }
+
+    public List<GuestComment> getAllComments() {
+        return guestBookRepository.findAll();
     }
 }

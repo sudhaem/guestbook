@@ -9,8 +9,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class GuestBookServiceTest {
@@ -26,7 +28,19 @@ public class GuestBookServiceTest {
         when(guestBookRepository.save(guestComment)).thenReturn(guestComment);
 
         assertEquals(guestComment,guestBookService.addComment(guestComment));
+        verify(guestBookRepository, times(1)).save(guestComment);
 
     }
+
+   @Test
+    public  void getAllComments(){
+       GuestComment guestComment1 = new GuestComment("Ashwini", "hello");
+       GuestComment guestComment2 = new GuestComment("Sudha", "Beautiful place");
+       List<GuestComment> commentList = List.of(guestComment1, guestComment2);
+
+       when(guestBookRepository.findAll()).thenReturn(commentList);
+       assertEquals(commentList, guestBookService.getAllComments());
+       verify(guestBookRepository, times(1)).findAll();
+   }
 
 }
